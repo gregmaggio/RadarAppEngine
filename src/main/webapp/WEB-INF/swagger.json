@@ -1,0 +1,409 @@
+{
+	"swagger" : "2.0",
+	"info" : {
+		"description" : "API",
+		"version" : "1.0",
+		"title" : "Radar",
+		"license" : {
+			"name" : "Apache License Version 2.0"
+		}
+	},
+	"host" : "{{host}}",
+	"basePath" : "",
+	"tags" : [{
+			"name" : "service-controller",
+			"description" : "Service Controller"
+		}, {
+			"name" : "cron-controller",
+			"description" : "Cron Controller"
+		}
+	],
+	"paths" : {
+		"/api/sites" : {
+			"get" : {
+				"tags" : ["service-controller"],
+				"summary" : "Sites",
+				"operationId" : "sites",
+				"consumes" : ["application/json","text/csv"],
+				"produces" : ["application/json","text/csv"],
+				"responses" : {
+					"200" : {
+						"description" : "OK",
+						"schema" : {
+							"type" : "array",
+							"items" : {
+								"$ref" : "#/definitions/RadarSiteDTO"
+							}
+						}
+					},
+					"401" : {
+						"description" : "Unauthorized"
+					},
+					"403" : {
+						"description" : "Forbidden"
+					},
+					"404" : {
+						"description" : "Not Found"
+					}
+				}
+			}
+		},
+		"/api/sourceImages/{radar}" : {
+			"get" : {
+				"tags" : ["service-controller"],
+				"summary" : "Source Images",
+				"operationId" : "sourceImages",
+				"consumes" : ["application/json"],
+				"produces" : ["application/json"],
+				"parameters" : [{
+						"name" : "radar",
+						"in" : "path",
+						"description" : "radar",
+						"required" : true,
+						"type" : "string"
+					}
+				],
+				"responses" : {
+					"200" : {
+						"description" : "OK",
+						"schema" : {
+							"type" : "array",
+							"items" : {
+								"type" : "string"
+							}
+						}
+					},
+					"401" : {
+						"description" : "Unauthorized"
+					},
+					"403" : {
+						"description" : "Forbidden"
+					},
+					"404" : {
+						"description" : "Not Found"
+					}
+				}
+			}
+		},		
+		"/api/list/{radar}" : {
+			"get" : {
+				"tags" : ["service-controller"],
+				"summary" : "List Images",
+				"operationId" : "list",
+				"consumes" : ["application/json"],
+				"produces" : ["application/json"],
+				"parameters" : [{
+						"name" : "radar",
+						"in" : "path",
+						"description" : "radar",
+						"required" : true,
+						"type" : "string"
+					}
+				],
+				"responses" : {
+					"200" : {
+						"description" : "OK",
+						"schema" : {
+							"type" : "array",
+							"items" : {
+								"type" : "string"
+							}
+						}
+					},
+					"401" : {
+						"description" : "Unauthorized"
+					},
+					"403" : {
+						"description" : "Forbidden"
+					},
+					"404" : {
+						"description" : "Not Found"
+					}
+				}
+			}
+		},		
+		"/api/load/{radar}/{file}" : {
+			"get" : {
+				"tags" : ["service-controller"],
+				"summary" : "List Images",
+				"operationId" : "list",
+				"consumes" : ["application/json"],
+				"produces" : ["application/json"],
+				"parameters" : [{
+						"name" : "radar",
+						"in" : "path",
+						"description" : "radar",
+						"required" : true,
+						"type" : "string"
+					}, {
+						"name" : "file",
+						"in" : "path",
+						"description" : "file",
+						"required" : true,
+						"type" : "string"
+					}
+				],
+				"responses" : {
+					"200" : {
+						"description" : "OK",
+						"schema" : {
+							"type" : "string",
+							"format" : "binary"
+						}
+					},
+					"401" : {
+						"description" : "Unauthorized"
+					},
+					"403" : {
+						"description" : "Forbidden"
+					},
+					"404" : {
+						"description" : "Not Found"
+					}
+				}
+			}
+		},
+		"/cron/clean/{radar}" : {
+			"get" : {
+				"tags" : ["cron-controller"],
+				"summary" : "Clean Old Images",
+				"operationId" : "clean",
+				"consumes" : ["application/json"],
+				"produces" : ["application/json"],
+				"parameters" : [{
+						"name" : "radar",
+						"in" : "path",
+						"description" : "radar",
+						"required" : true,
+						"type" : "string"
+					}
+				],
+				"responses" : {
+					"204" : {
+						"description" : "OK"
+					},
+					"401" : {
+						"description" : "Unauthorized"
+					},
+					"403" : {
+						"description" : "Forbidden"
+					},
+					"404" : {
+						"description" : "Not Found"
+					}
+				}
+			}
+		},
+		"/cron/clean/{offset}/{limit}" : {
+			"get" : {
+				"tags" : ["cron-controller"],
+				"summary" : "Clean Old Images for a range of sites",
+				"operationId" : "cleanRange",
+				"consumes" : ["application/json"],
+				"produces" : ["application/json"],
+				"parameters" : [{
+						"name" : "offset",
+						"in" : "path",
+						"description" : "offset",
+						"required" : true,
+						"type" : "number",
+						"format" : "integer"
+					}, {
+						"name" : "limit",
+						"in" : "path",
+						"description" : "limit",
+						"required" : true,
+						"type" : "number",
+						"format" : "integer"
+					}
+				],
+				"responses" : {
+					"204" : {
+						"description" : "OK"
+					},
+					"401" : {
+						"description" : "Unauthorized"
+					},
+					"403" : {
+						"description" : "Forbidden"
+					},
+					"404" : {
+						"description" : "Not Found"
+					}
+				}
+			}
+		},
+		"/cron/save/{radar}" : {
+			"get" : {
+				"tags" : ["cron-controller"],
+				"summary" : "Save New Images",
+				"operationId" : "save",
+				"consumes" : ["application/json"],
+				"produces" : ["application/json"],
+				"parameters" : [{
+						"name" : "radar",
+						"in" : "path",
+						"description" : "radar",
+						"required" : true,
+						"type" : "string"
+					}
+				],
+				"responses" : {
+					"204" : {
+						"description" : "OK"
+					},
+					"401" : {
+						"description" : "Unauthorized"
+					},
+					"403" : {
+						"description" : "Forbidden"
+					},
+					"404" : {
+						"description" : "Not Found"
+					}
+				}
+			}
+		},
+		"/cron/save/{offset}/{limit}" : {
+			"get" : {
+				"tags" : ["cron-controller"],
+				"summary" : "Save New Images within site range",
+				"operationId" : "saveRange",
+				"consumes" : ["application/json"],
+				"produces" : ["application/json"],
+				"parameters" : [{
+						"name" : "offset",
+						"in" : "path",
+						"description" : "offset",
+						"required" : true,
+						"type" : "number",
+						"format" : "integer"
+					}, {
+						"name" : "limit",
+						"in" : "path",
+						"description" : "limit",
+						"required" : true,
+						"type" : "number",
+						"format" : "integer"
+					}
+				],
+				"responses" : {
+					"204" : {
+						"description" : "OK"
+					},
+					"401" : {
+						"description" : "Unauthorized"
+					},
+					"403" : {
+						"description" : "Forbidden"
+					},
+					"404" : {
+						"description" : "Not Found"
+					}
+				}
+			}
+		},
+		"/cron/saveAll" : {
+			"get" : {
+				"tags" : ["cron-controller"],
+				"summary" : "Save All Images",
+				"operationId" : "saveAll",
+				"consumes" : ["application/json"],
+				"produces" : ["application/json"],				
+				"responses" : {
+					"204" : {
+						"description" : "OK"
+					},
+					"401" : {
+						"description" : "Unauthorized"
+					},
+					"403" : {
+						"description" : "Forbidden"
+					},
+					"404" : {
+						"description" : "Not Found"
+					}
+				}
+			}
+		},
+		"/cron/async" : {
+			"get" : {
+				"tags" : ["cron-controller"],
+				"summary" : "Async Processors",
+				"operationId" : "async",
+				"consumes" : ["application/json"],
+				"produces" : ["application/json"],
+				"responses" : {
+					"200" : {
+						"description" : "OK",
+						"schema" : {
+							"type" : "array",
+							"items" : {
+								"$ref" : "#/definitions/AsyncProcessor"
+							}
+						}
+					},
+					"401" : {
+						"description" : "Unauthorized"
+					},
+					"403" : {
+						"description" : "Forbidden"
+					},
+					"404" : {
+						"description" : "Not Found"
+					}
+				}
+			}
+		}
+	},
+	"definitions" : {
+		"RadarSiteDTO" : {
+			"type" : "object",
+			"properties" : {
+				"radarId" : {
+					"type" : "string"
+				},
+				"wfoId" : {
+					"type" : "string"
+				},
+				"name" : {
+					"type" : "string"
+				},
+				"latitude" : {
+					"type" : "number",
+					"format" : "double"
+				},
+				"longitude" : {
+					"type" : "number",
+					"format" : "double"
+				},
+				"elevation" : {
+					"type" : "number",
+					"format" : "double"
+				}
+			}
+		},		
+		"AsyncProcessor" : {
+			"type" : "object",
+			"properties" : {
+				"running" : {
+					"type" : "boolean"
+				},
+				"started" : {
+					"type" : "boolean"
+				},
+				"stopped" : {
+					"type" : "boolean"
+				},
+				"percentComplete" : {
+					"type" : "number",
+					"format" : "double"
+				},
+				"runningTime" : {
+					"type" : "string"
+				}
+			}
+		}
+	}
+}
+

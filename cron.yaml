@@ -1,0 +1,127 @@
+cron:
+
+- description: "Load radar images for index 0"
+  url: /cron/save/0/10
+  schedule: every 1 hours from 00:00 to 23:00
+  target: radar
+- description: "Load radar images for index 10"
+  url: /cron/save/10/10
+  schedule: every 1 hours from 00:05 to 23:05
+  target: radar
+- description: "Load radar images for index 20"
+  url: /cron/save/20/10
+  schedule: every 1 hours from 00:10 to 23:10
+  target: radar
+- description: "Load radar images for index 30"
+  url: /cron/save/30/10
+  schedule: every 1 hours from 00:15 to 23:15
+  target: radar
+- description: "Load radar images for index 40"
+  url: /cron/save/40/10
+  schedule: every 1 hours from 00:20 to 23:20
+  target: radar
+- description: "Load radar images for index 50"
+  url: /cron/save/50/10
+  schedule: every 1 hours from 00:25 to 23:25
+  target: radar
+- description: "Load radar images for index 60"
+  url: /cron/save/60/10
+  schedule: every 1 hours from 00:30 to 23:30
+  target: radar
+- description: "Load radar images for index 70"
+  url: /cron/save/70/10
+  schedule: every 1 hours from 00:35 to 23:35
+  target: radar
+- description: "Load radar images for index 80"
+  url: /cron/save/80/10
+  schedule: every 1 hours from 00:40 to 23:40
+  target: radar
+- description: "Load radar images for index 90"
+  url: /cron/save/90/10
+  schedule: every 1 hours from 00:45 to 23:45
+  target: radar
+- description: "Load radar images for index 100"
+  url: /cron/save/100/10
+  schedule: every 1 hours from 00:50 to 23:50
+  target: radar
+- description: "Load radar images for index 110"
+  url: /cron/save/110/10
+  schedule: every 1 hours from 00:55 to 23:55
+  target: radar
+- description: "Load radar images for index 120"
+  url: /cron/save/120/10
+  schedule: every 1 hours from 01:00 to 22:00
+  target: radar
+- description: "Load radar images for index 130"
+  url: /cron/save/130/10
+  schedule: every 1 hours from 01:05 to 22:05
+  target: radar
+- description: "Load radar images for index 140"
+  url: /cron/save/140/10
+  schedule: every 1 hours from 01:10 to 22:10
+  target: radar
+- description: "Load radar images for index 150"
+  url: /cron/save/150/10
+  schedule: every 1 hours from 01:15 to 22:15
+  target: radar
+- description: "Load radar images for index 160"
+  url: /cron/save/160/10
+  schedule: every 1 hours from 01:20 to 22:20
+  target: radar
+- description: "Load radar images for index 170"
+  url: /cron/save/170/10
+  schedule: every 1 hours from 01:25 to 22:25
+  target: radar
+- description: "Load radar images for index 180"
+  url: /cron/save/180/10
+  schedule: every 1 hours from 01:30 to 22:30
+  target: radar
+- description: "Load radar images for index 190"
+  url: /cron/save/190/10
+  schedule: every 1 hours from 01:35 to 22:35
+  target: radar
+- description: "Load radar images for index 200"
+  url: /cron/save/200/10
+  schedule: every 1 hours from 01:40 to 22:40
+  target: radar
+- description: "Load radar images for index 210"
+  url: /cron/save/210/10
+  schedule: every 1 hours from 01:45 to 22:45
+  target: radar
+
+- description: "Clean radar images for index 0"
+  url: /cron/clean/0/25
+  schedule: every 24 hours from 00:00 to 23:00
+  target: radar
+- description: "Clean radar images for index 25"
+  url: /cron/clean/25/25
+  schedule: every 24 hours from 00:05 to 23:05
+  target: radar
+- description: "Clean radar images for index 50"
+  url: /cron/clean/50/25
+  schedule: every 24 hours from 00:10 to 23:10
+  target: radar
+- description: "Clean radar images for index 75"
+  url: /cron/clean/75/25
+  schedule: every 24 hours from 00:15 to 23:15
+  target: radar
+- description: "Clean radar images for index 100"
+  url: /cron/clean/100/25
+  schedule: every 24 hours from 00:20 to 23:20
+  target: radar
+- description: "Clean radar images for index 125"
+  url: /cron/clean/125/25
+  schedule: every 24 hours from 00:25 to 23:25
+  target: radar
+- description: "Clean radar images for index 150"
+  url: /cron/clean/150/25
+  schedule: every 24 hours from 00:30 to 23:30
+  target: radar
+- description: "Clean radar images for index 175"
+  url: /cron/clean/175/25
+  schedule: every 24 hours from 00:35 to 23:35
+  target: radar
+- description: "Clean radar images for index 200"
+  url: /cron/clean/200/25
+  schedule: every 24 hours from 00:40 to 23:40
+  target: radar
